@@ -1,16 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prepara JF</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Verdana', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #d32f2f;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .alert-box {
+            background-color: #fff;
+            border-left: 6px solid #d32f2f;
+            padding: 20px;
+            margin: 0 auto 1px;
+            max-width: 800px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 0 8px 8px 0;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+        
+        .alert-box h2 {
+            color: #d32f2f;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .alert-box::before {
+            content: "!";
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #d32f2f;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.01); }
+            100% { transform: scale(1); }
+        }
+        
+        .image-container {
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 3px solid #d32f2f;
+            position: relative;
+        }
+        
+        .image-container::after {
+            content: "ATENÇÃO";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #d32f2f;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        img {
+            display: block;
+            width: 250px;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        button {
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        button:hover {
+            background-color: #b71c1c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        button::after {
+            content: "→";
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover::after {
+            margin-left: 15px;
+        }
+        
+        footer {
+            margin-top: 50px;
+            color: #777;
+            font-size: 0.9rem;
+            text-align: center;
+            width: 100%;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .alert-box {
+                padding: 15px;
+                margin: 0 15px 25px;
+            }
+            
+            .alert-box h2 {
+                font-size: 1.1rem;
+            }
+            
+            button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
     <script>
         const endereco = 'https://shiner-humble-peacock.ngrok-free.app/student/login';
-        window.open(endereco, '_self');
     </script>
 </head>
 <body>
-
+    <header>
+        <h1>Atenção, aluno!</h1>
+        <div class="alert-box">
+            <h2>Após clicar no botão, caso a tela abaixo apareça, basta clicar no botão azul como mostra o print abaixo:</h2>
+        </div>
+    </header>
     
+    <div class="image-container">
+        <img src="print_ngrok.png" alt="Instruções de acesso">
+    </div>
+    
+    <button onclick="window.open(endereco, '_self');">ACESSAR LOGIN</button>
 </body>
 </html>
